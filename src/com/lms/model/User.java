@@ -40,10 +40,12 @@ public class User {
 				&& Objects.equals(userId, other.userId);
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", email=" + email + ", books="
-				+ books + "]";
+		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", books=" + books + ", type=" + type
+				+ "]";
 	}
 
 	public String getUserId() {

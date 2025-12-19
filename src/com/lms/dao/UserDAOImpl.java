@@ -9,12 +9,15 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public boolean saveUser(User user) {
-		User userToBeStored = getUserById(user.getUserId());
-		if (userToBeStored != null) {
+		User isPresent = getUserById(user.getUserId());
+		
+		if (isPresent != null) {
 
 			return false;
 		}
-		UserDatabase.users.add(userToBeStored);
+		UserDatabase.users.add(user);
+		
+	
 		return true;
 	}
 
