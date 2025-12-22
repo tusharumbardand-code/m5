@@ -13,13 +13,7 @@ public class BookView {
    
 	}
 	
-	public static void main(String[] args) {
-		BookView b = new  BookView();
-		b.showAllBooks();
-		b.updateBook();
-		b.showAllBooks();
-	}
-
+	
 	public void creatNewBook() {
 		// Book title, Author, ID, Rating
 		System.out.println("ENTER BOOK ID");
@@ -57,15 +51,16 @@ public class BookView {
 		}
 	}
 
-	public void getBook() {
+	public Book getBook() {
 		System.out.println("ENTER BOOK ID");
 		int id = Input.getScanner().nextInt();
 		Book book = bookService.searchBookById(id);
 		if (book == null) {
 			System.out.println("BOOK IS NOT PRESENT WITH GIVEN ID " + id);
-			return;
+			return null;
 		}
 		System.out.println(book);
+		return book;
 	}
 
 	public void updateBook() {

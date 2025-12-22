@@ -9,15 +9,9 @@ public class UserView {
 
 	private UserService userService = new UserServiceImpl();
 
-	public static void main(String[] args) {
-		UserView view = new UserView();
-		view.showAllUsers();
-		view.search();
-		view.showAllUsers();
-	}
-
 	public void createuster() {
 		System.out.println("ENTER USER ID");
+		Input.getScanner().nextLine();
 		String userId = Input.getScanner().nextLine();
 		System.out.println("ENTER PASSWORD");
 		String password = Input.getScanner().nextLine();
@@ -68,9 +62,8 @@ public class UserView {
 
 	}
 
-	public void upDate() {
-		System.out.println("ENTER USER ID");
-		String userId = Input.getScanner().nextLine();
+	public void upDate(String userId) {
+		
 		User userToBeUpdated = userService.getUser(userId);
 
 		if (userToBeUpdated == null) {
