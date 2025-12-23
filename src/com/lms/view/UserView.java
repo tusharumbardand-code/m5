@@ -38,6 +38,7 @@ public class UserView {
 
 	public void search() {
 		System.out.println("ENTER USER ID");
+		Input.getScanner().nextLine();
 		String userId = Input.getScanner().nextLine();
 		User user = userService.getUser(userId);
 		if (user == null) {

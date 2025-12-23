@@ -43,7 +43,7 @@ public class Driver {
 		String password = Input.getScanner().nextLine();
 
 		User user = userService.getUser(userID);
-		System.out.println(user);
+		
 		if (user == null) {
 			System.out.println("USER IS NOT PRESENT");
 			return;
@@ -93,7 +93,7 @@ public class Driver {
 				System.out.println("ENTER BOOK ID");
 				int id = Input.getScanner().nextInt();
 				Book book = user.getBooks().stream().filter(b -> b.getId() == id).findFirst().orElse(null);
-				if(book==null) {
+				if (book == null) {
 					System.out.println("BOOK IS NOT PRESENT");
 					break;
 				}
@@ -138,7 +138,49 @@ public class Driver {
 	}
 
 	private static void librarianView(User user) {
-		System.out.println("wait");
+
+		do {
+
+			System.out.println(
+					"1.ALL BOOKS \n2.ALL USERS \n3.ADD BOOK \n4.REMOVE BOOK \n5.SEARCH BOOK \n6.SEARCH USER \n7.EXIT");
+
+			int op = Input.getScanner().nextInt();
+			switch (op) {
+
+			case 1: {
+				bookView.showAllBooks();
+				break;
+			}
+			case 2: {
+				userView.showAllUsers();
+				break;
+			}
+			case 3: {
+				bookView.creatNewBook();
+				break;
+			}
+			case 4: {
+				bookView.delete();
+				break;
+			}
+			case 5: {
+				bookView.getBook();
+				break;
+			}
+			case 6: {
+				userView.search();
+				break;
+			}
+			case 7: {
+				return;
+			}
+			default: {
+				System.out.println("INVALID INPUT");
+			}
+
+			}
+
+		} while (true);
 
 	}
 

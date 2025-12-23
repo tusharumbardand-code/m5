@@ -19,6 +19,7 @@ public class BookView {
 		System.out.println("ENTER BOOK ID");
 		int id = Input.getScanner().nextInt();
 		System.out.println("ENTER BOOK TITLE");
+		Input.getScanner().nextLine();
 		String title = Input.getScanner().nextLine();
 		System.out.println("ENTER AUTHOR NAME");
 		String author = Input.getScanner().nextLine();
